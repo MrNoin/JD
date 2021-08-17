@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+i{
+    font-family: 'icomoon';
+    font-style: normal;
+}
+
+.project{
+    position: relative;
+    height: 500px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    background-color: #f10215;
+}
+.project image{
+    height: 80%;
+    width: 80%;
+}
+.buy a{
+    position: absolute;
+    top: 500px;
+    left: 750px;
+    display: block;
+    margin-top: 10px;
+    width: 180px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color:#f10215;
+    border-radius: 12.5px;
+    color: #eeeeee;
+    transition: .2s;
+    font-size: 25px;
+}
+.discussion h5{
+    font-size: 50px;
+    font-style: normal;
+    margin-top: -680px;
+    margin-left: 750px;
+}

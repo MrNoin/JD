@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人注册</title>
+    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+    <script src="../static/js/jQuery.min.js"></script>
+    <!--<link rel="stylesheet" href="css/login.css"/>-->
+    <style>
+        header,section,article,figure{
+            display: block;
+        }
+        *,html,body{
+            padding: 0;
+            margin: 0;
+        }
+        body,p,ul,li,span,i,strong,input,textarea{
+            font-size: 14px;
+            font-family: "微软雅黑";
+            font-style: normal;
+            padding: 0;
+            margin: 0;
+        }
+        h1,h2,h3,h4,h5,h6{
+            font-weight: normal;
+            font-size: 14px;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        header{
+            width: 980px;
+            margin: 0 auto ;
+            /*border: 1px #off solid;*/
+            height: 108px;
+            position: relative;
+        }
+        .logo{padding-top:15px ;}
+        .logo img{margin-right: 10px;}
+        header > article a{
+
+            position: absolute;
+            right: 0;
+            top:50px;
+            font-size: 12px;
+        }
+        header a img{ vertical-align:middle; padding-right: 5px;}
+        header a:hover{
+            text-decoration:
+                    underline; color: #f00;
+        }
+        header article a{
+            font-family: "宋体";
+            font-size: 12px;
+            color: #999;
+        }
+        mark{
+            width:100%;
+            height: 37px;
+            background: #fff8f0;
+            text-align: center;
+            line-height: 37px;
+            font-family: "宋体";
+            font-size: 12px;
+            color: #999;
+            display: block;
+        }
+        .content{
+            position: relative;
+            background:#dd2e12;/*中间大背景*/
+            height: 477px;
+        }
+        .wrap{/*中间图片背景*/
+            width: 378px;
+            margin: 0 auto;
+            background:url(../static/images/JDlogo1.png)no-repeat left center;
+            height: 477px;
+            padding-left: 1000px;
+        }
+        .formgorup{	/*右侧白背景*/
+            position: relative;
+            overflow: visible;
+            bottom: 465px;
+            left: 1000px;
+            background: #fff;
+            width: 346px;
+            height: 400px;
+        }
+        .formgorup mark{
+            height: 38px;
+            text-align: center;
+            display: block;
+            line-height: 35px;
+            background: #fff8f0;
+            font-family: "宋体";
+            font-size: 12px;
+        }
+        .formgorup mark img{
+            vertical-align: middle;
+            padding-right: 5px;
+        }
+        section mark{
+            background: #DD2E12;
+            font-family: "宋体";
+            font-size: 12px;
+            color: #999;
+        }
+        form img{
+            align-self: auto;
+            width: 38.67px;
+            height: 38px;
+        }
+        #bz{
+
+            width: 173px;
+            height: 56px;
+            float: left;
+            border-bottom:#f4f4f4 solid 1px ;
+        }
+        #bz a:hover{
+            font-family:"微软雅黑";
+            font-weight: bolder;
+            color:#E4393C;
+        }
+        p{
+            /*width: 173px;
+            height: 18px;*/
+            margin-top: 16px;
+            font-size: 18px;
+        }
+        .o{
+            color: #696969;
+        }
+        .q{
+            text-align: center;
+            border-right: #f4f4f4 solid 1px;
+        }
+        #by{
+            width: 173px;
+            height: 56px;
+            float: left;
+            text-align: center;
+            border-bottom:#f4f4f4 solid 1px ;
+        }
+        #by a:hover{
+            font-family:"微软雅黑";
+            font-weight: bolder;
+            color:#E4393C;
+        }
+        .mid{
+            position:absolute;
+            top: 94px;
+            width: 304px;
+            height: 255px;
+            margin-left: 20px;
+        }
+        .midtop{
+            position: absolute;
+            top:33px;
+            width: 302px;
+            height: 38px;
+            border: #999999 solid 1px;
+        }
+        .Uphoto img{
+            border-right: #999999 solid 1px;
+        }
+        .longname input{
+            position: absolute;
+            left:50px;
+            top:0px;
+            width: 250px;
+            height: 38.3px;
+            border:none;
+            font-family:"宋体";
+            font-size: 16px;
+            color: gray;
+        }
+        .midunder{
+            position: absolute;
+            top:92px;
+            width: 302px;
+            height: 38px;
+            border: #999999 solid 1px;
+        }
+        .Pphoto img{
+            border-right: #999999 solid 1px;
+        }
+        .password input{
+            position: absolute;
+            left: 50px;
+            top: 0.5px;
+            width: 250px;
+            height: 37px;
+            border: none;
+            font-family: "宋体";
+            font-size: 16px;
+            color: gray;
+        }
+        .midsmall{
+            position: absolute;
+            top:151px;
+            width: 302px;
+            height: 18px;
+            color: dimgrey;
+            text-align: right;
+            font-family: "宋体";
+        }
+        .midsmall p{
+            position: absolute;
+            left:250px;
+            bottom: 2px;
+            color: dimgrey;
+            text-align: right;
+            font-size: 12px;
+            font-family: "宋体";
+        }
+        .midsmall a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        /*.midbtn{
+            position: absolute;
+            top:180px;
+            width: 302px;
+            height: 36px;
+            background: #DD2E12;
+        }*/
+        .sf{
+            position: absolute;
+            top:349px;
+            background: #fcfcfc;
+            width: 346px;
+            height: 51px;
+            border-top:#f4f4f4 solid 1px ;
+        }
+        .foot{
+            width: 302px;
+            height: 51px;
+            margin:0 auto;
+        }
+        .qq_icon{
+            position: absolute;
+            left: 20px;
+            top:15px;
+        }
+        .qq_icon img{
+            width: 19px;
+            height: 18px;
+        }
+        .qq p{
+            width:35px;
+            margin-left: 20px;
+            font-family: "微软雅黑";
+            font-size:11px;
+            color:dimgrey;
+            border-right: darkgray solid 1px;
+        }
+        .qq a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .wechat img{
+            position: absolute;
+            left: 90px;
+            top:15px;
+            width: 19px;
+            height: 18px;
+        }
+        .wx p{
+            position: absolute;
+            left: 115px;
+            bottom:20px;
+            color:dimgrey;
+            font-family: "宋体";
+            font-size:11px;
+            color: dimgrey;
+        }
+        .wx a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .zc_p img{
+            position: absolute;
+            right: 80px;
+            top:18px;
+            width: 16px;
+            height: 16px;
+        }
+        .zc p{
+            position: absolute;
+            right:22px ;
+            bottom:16px;
+            font-size:14px;
+            color:#dd2e12;
+            font-family: "宋体";
+        }
+        .zc a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .midbtn input{
+            width: 304px;
+            height: 36px;
+            position: absolute;
+            left:0px;
+            top: 190px;
+            background:#DD2E12;
+            border: #DD2E12 solid 1px;
+            font-size: 22px;
+            font-family: "微软雅黑";
+            color: white;
+            text-align: center;
+        }
+        footer{
+            position: absolute;
+            top: 625px;
+            left:300px;
+            width: 1000px;
+            height:80px;
+        }
+        nav{
+            position: absolute;
+            top:10px;
+            left:30px;
+            height: 20px;
+            width:900px;
+        }
+        .low{
+            position: absolute;
+            top:45px;
+            left:350px;
+            width: 350px;
+            height: 20px;
+
+        }
+        .low p{
+            position: absolute;
+            bottom:8px;
+            left: 10px;
+            font-size:10px;
+            font-family: "微软雅黑";
+            text-align: center;
+            color: grey;
+        }
+        .gywm{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left: 15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .gywm a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .gywm a{
+            color: grey;
+        }
+        .lxwm{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .lxwm a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .lxwm a{
+            color: grey;
+        }
+        .rczp{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .rczp a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .rczp a{
+            color: grey;
+        }
+        .sjrz{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .sjrz a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .sjrz a{
+            color: grey;
+        }
+        .ggfw{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .ggfw a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .ggfw a{
+            color: grey;
+        }
+        .sjjd{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .sjjd a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .sjjd a{
+            color: grey;
+        }
+        .yqlj{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .yqlj a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .yqlj a{
+            color: grey;
+        }
+        .xslm{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .xslm a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .xslm a{
+            color: grey;
+        }
+        .jdsq{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .jdsq a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .jdsq a{
+            color: grey;
+        }
+        .jdgy{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+            padding-right:14px;
+            border-right:#999999 solid 1px;
+        }
+        .jdgy a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .jdgy a{
+            color: grey;
+        }
+        .yyz{
+            float: left;
+            color: grey;
+            font-size: 12px;
+            padding-left:15px;
+        }
+        .yyz a:hover{
+            color:#dd2e12;
+            text-decoration: underline;
+        }
+        .yyz a{
+            color: grey;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <article>
+        <figure class="logo">
+            <img src="../static/images/JDlogo2.png" />
+            <img src="../static/images/hyzc.png" alt=""/>
+        </figure>
+        <a href="#"><img src="../static/images/dcwj.png" alt="">注册页面，调查问卷</a>
+    </article>
+</header>
+<mark>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版<a href="#">《京东隐私政策》</a>，将更有利于保护您的个人隐私。</mark>
+<section class="content">
+    <article class="wrap"></article>
+    <article class="formgorup">
+        <mark><img src="../static/images/jfzp.png" alt="" />京东不会以任何理由要求您转账汇款，谨防诈骗。</mark>
+        <form action="../template/index.html" method="" id="reg">
+            <div id="by"><p class="o"><a href="#">账户注册</a></p></div>
+            <!--账号登录部分-->
+            <div class="mid">
+                <div class="midtop">
+                    <span class="Uphoto"><img src="../static/images/username.png"/></span>
+                    <span class="longname">
+								<input type="text" placeholder="用户名" required=""/>
+							</span>
+                </div>
+                <div class="midunder">
+                    <span class="Pphoto"><img src="../static/images/password.png"/></span>
+                    <span class="password">
+								<input type="password" placeholder="密码" required=""/>
+							</span>
+                </div>
+                <div class="midsmall"><p><a href="#">找回账户</a></p></div>
+                <div class="midbtn"><a href="表单/shopping.html" ><input type="button" value="注&nbsp&nbsp&nbsp册" form="reg"/></a></div>
+            </div>
+            <div class="sf">
+                <div class="foot">
+                    <span class="qq_icon"><a href="#"><img src="../static/images/qq.png"/></a></span>
+                    <span class="qq"><p><a href="#">QQ</a></p></span>
+                    <span class="wechat"><img src="../static/images/wx.png"/></span>
+                    <span class="wx"><p><a href="#">微信</a></p></span>
+                    <span class="zc_p"><a href="#"><img src="../static/images/zc.png"/></a></span>
+                    <span class="zc"><p><a href="login.html">立即登录</a></p></span>
+                </div>
+            </div>
+        </form>
+    </article>
+</section>
+<footer>
+    <nav>
+        <ul>
+            <li class="gywm"><a href="#">关于我们</a></li>
+            <li class="lxwm"><a href="#">联系我们</a></li>
+            <li class="rczp"><a href="#">人才招聘</a></li>
+            <li class="sjrz"><a href="#">商家入驻</a></li>
+            <li class="ggfw"><a href="#">广告服务</a></li>
+            <li class="sjjd"><a href="#">手机京东</a></li>
+            <li class="yqlj"><a href="#">友情链接</a></li>
+            <li class="xslm"><a href="#">销售联盟</a></li>
+            <li class="jdsq"><a href="#">京东社区</a></li>
+            <li class="jdgy"><a href="#">京东公益</a></li>
+            <li class="yyz"><a href="#">English Site</a></li>
+        </ul>
+    </nav>
+    <div class="low"><p>Copyright © 2004-2021  京东JD.com 版权所有</p></div>
+</footer>
+</body>
+</html>
